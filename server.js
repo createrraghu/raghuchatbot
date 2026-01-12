@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: "*" }));
+app.use(cors());
 app.use(express.json());
 
 // ---- Load Keys from .env ----
@@ -85,7 +85,6 @@ async function handleLiveQuery(text) {
 
 
 // ----------- MAIN CHAT AI -----------
-
 app.post("/chat", async (req, res) => {
   const userMsg = req.body.messages.at(-1).content;
 
